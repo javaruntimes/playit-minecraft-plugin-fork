@@ -52,8 +52,7 @@ public final class PlayitBukkit extends JavaPlugin implements Listener {
         try {
             PluginManager pm = Bukkit.getServer().getPluginManager();
             pm.registerEvents(this, this);
-        } catch (Exception e) {
-        }
+        } catch (Exception ignored) {}
     }
 
     @EventHandler
@@ -93,7 +92,7 @@ public final class PlayitBukkit extends JavaPlugin implements Listener {
 
                 if (manager == null) {
                     String currentSecret = getConfig().getString(CFG_AGENT_SECRET_KEY);
-                    if (currentSecret == null || currentSecret.length() == 0) {
+                    if (currentSecret == null || currentSecret.isEmpty()) {
                         sender.sendMessage(CFG_AGENT_SECRET_KEY + " is not set");
                     } else {
                         sender.sendMessage("playit status: offline (or shutting down)");
@@ -281,7 +280,7 @@ public final class PlayitBukkit extends JavaPlugin implements Listener {
         }
 
         int argCount = args.length;
-        if (argCount != 0 && args[argCount - 1].length() == 0) {
+        if (argCount != 0 && args[argCount - 1].isEmpty()) {
             argCount -= 1;
         }
 
