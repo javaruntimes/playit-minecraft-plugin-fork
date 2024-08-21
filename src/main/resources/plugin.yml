@@ -9,5 +9,7 @@ commands:
   playit:
     description: Configure playit.gg
     usage: /playit
-    permission: Operators
-    permission-message: You must be a server operator to run the playit command
+
+permissions:
+  playit.admin:
+    default: op

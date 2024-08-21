@@ -81,8 +81,8 @@ public final class PlayitBukkit extends JavaPlugin implements Listener {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!sender.isOp()) {
-            sender.sendMessage("OP required");
+        if (!sender.hasPermission("playit.admin")) {
+            sender.sendMessage("Permission/OP required");
             return true;
         }
 
